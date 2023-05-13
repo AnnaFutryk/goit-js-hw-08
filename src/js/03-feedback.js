@@ -21,13 +21,16 @@ function onFormInput(event) {
     // };
 
     formData[event.target.name] = event.target.value.trim();
-    console.log(formData);
 
     localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
 };
 
 function onFormSubmit(event) {
     event.preventDefault();
+
+    if (refs.input.value === "" || refs.textarea.value === "") {
+           return alert(`Please fill in all the fields!`);
+    }
 
     console.log(formData);
 
